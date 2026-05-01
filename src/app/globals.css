@@ -55,8 +55,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.58 0.12 300);
+  --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -66,7 +66,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.58 0.12 300);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -90,8 +90,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.72 0.12 300);
+  --primary-foreground: oklch(0.13 0.015 300);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -101,7 +101,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.72 0.12 300);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -126,5 +126,112 @@
   }
   html {
     @apply font-sans;
+  }
+}
+/* ============================================
+   DOT GRID PATTERN
+   ============================================ */
+.bg-dot-pattern {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.5 0.02 300 / 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.72 0.12 300 / 0.06) 1px,
+    transparent 1px
+  );
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+.glass {
+  background: oklch(1 0 0 / 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid oklch(1 0 0 / 0.2);
+}
+
+.dark .glass {
+  background: oklch(0.18 0.02 300 / 0.5);
+  border: 1px solid oklch(1 0 0 / 0.06);
+}
+
+/* ============================================
+   RADIAL GLOW (behind converter card)
+   ============================================ */
+.glow-violet {
+  position: relative;
+}
+
+.glow-violet::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    ellipse at center,
+    oklch(0.72 0.12 300 / 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark .glow-violet::before {
+  background: radial-gradient(
+    ellipse at center,
+    oklch(0.72 0.12 300 / 0.18) 0%,
+    transparent 70%
+  );
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+.text-gradient {
+  background: linear-gradient(135deg, oklch(0.72 0.12 300), oklch(0.65 0.14 320));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   LOGO SHADOW + GLOW
+   ============================================ */
+.logo-glow {
+  filter: drop-shadow(0 0 10px oklch(0.58 0.12 300 / 0.5)) drop-shadow(0 2px 8px oklch(0.58 0.12 300 / 0.3));
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px oklch(0.58 0.12 300 / 0.5)) drop-shadow(0 2px 8px oklch(0.58 0.12 300 / 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px oklch(0.58 0.12 300 / 0.6)) drop-shadow(0 2px 12px oklch(0.58 0.12 300 / 0.4));
+  }
+}
+
+.dark .logo-glow {
+  filter: drop-shadow(0 0 10px oklch(0.72 0.12 300 / 0.4));
+  animation: logo-pulse-dark 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse-dark {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px oklch(0.72 0.12 300 / 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px oklch(0.72 0.12 300 / 0.6));
   }
 }

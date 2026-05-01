@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# next
+.next
+out
+
+# env (never bake secrets into image)
+.env
+.env.*
+!.env.example
+
+# git / ide
+.git
+.gitignore
+.DS_Store
+
+# misc
+*.tsbuildinfo
+.next/dev
+coverage

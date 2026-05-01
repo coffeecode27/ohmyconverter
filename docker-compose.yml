@@ -1,0 +1,11 @@
+services:
+  cobalt:
+    image: ghcr.io/imputnet/cobalt:11
+    init: true
+    read_only: true
+    restart: unless-stopped
+    ports:
+      - "9000:9000/tcp"
+    environment:
+      API_URL: "http://localhost:9000/"
+      CORS_WILDCARD: "1"
