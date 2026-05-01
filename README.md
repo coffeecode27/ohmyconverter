@@ -94,4 +94,4 @@ Pengunduhan dan penyalinan konten bisa dibatasi oleh **hak cipta** dan **ketentu
 
 ## Lisensi
 
-Sesuaikan dengan kebijakan repositorimu (misalnya tambahkan file `LICENSE` jika repo bersifat publik).
+Kode dalam repositori ini dilisensikan di bawah **MIT License** — lihat [LICENSE](./LICENSE).
